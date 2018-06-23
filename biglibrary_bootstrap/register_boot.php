@@ -140,7 +140,7 @@ $mysqli->close();
 		  </div>
 		</nav>
 	</header>
-	<main>
+	<main class="small_main">
 		<form class="form-signin" action="register_boot.php" method="post" autocomplete="on">
 			<div class="form-group">
 		    <label for="first_name">First name</label>

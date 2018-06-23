@@ -1,7 +1,10 @@
 main {
-	width: 40%;
+	width: 90%;
 	margin: auto;
 	text-align: center;
+}
+.small_main {
+	width: 300px;
 }
 form {
 	margin-top: 50px;
