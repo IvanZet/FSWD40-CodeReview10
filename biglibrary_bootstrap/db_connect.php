@@ -12,4 +12,3 @@ if ($mysqli->connect_error) {
 } else {
 	//echo "Connection live!<br>";
 }
-?>
