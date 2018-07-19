@@ -1,4 +1,7 @@
 <?php 
+/*Questions
+*
+*/
 ob_start();
 session_start();
 
@@ -8,17 +11,20 @@ if(isset($_SESSION['user'])) {
 	exit;
 }
 
-//Attemt to login user
+/*
+*Attemt to login user
+*/
 $error = false;
 $errorMsg = '';
 
-//Establish DB connection
-require_once('db_connect.php');
+require_once('index_model.php');
+
+checkConnection(); //My function defined in model.php
 
 if (isset($_POST['btn_login'])) { //If login button was pushed
-	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
-	$pass = mysqli_real_escape_string($mysqli, $_POST['pass']);
+	list($email, $pass) = getEmailPass($_POST['email'], $_POST['pass']); //My functioin defined in model.php
 
+	//Check email input
 	if (empty($email)) {
 		$error = true;
 		$errorMsg .= 'Please enter email!';
@@ -27,10 +33,11 @@ if (isset($_POST['btn_login'])) { //If login button was pushed
 		$errorMsg .= 'Pleas enter a valid email!';
 		}
 
+	//Check password input
 	if (empty($pass)) {
 		$error = true;
 		$errorMsg .= ' Please enter password!';
-	}
+	} 
 
 	//If user input email and pass, continue to login
 	if (!$error) {
@@ -39,28 +46,29 @@ if (isset($_POST['btn_login'])) { //If login button was pushed
 		//var_dump($pass);
 
 		//Check that user is registered
-		require_once('index_model.php');
+		list($count, $row) = checkUser($email, $error, $errorMsg);
 
-		//contunue login
+		//Contunue login
 		if (!$error) {
 			if ($count == 1 && $row[0]['pass'] == $pass) {//Single user found and passwords match
 				$_SESSION['user'] = $row[0]['user_id'];
 				header("Location: big_list_boot.php");
 			} else { //If passwords not match
-				echo 'Incorrect credentials, try again!';
+				var_dump($count);
+				var_dump($row);
+				var_dump($error);
+				echo $errorMsg;
 			}
-		} //else is missing because it was given in index_model.php
-	} else { //If result is not an object
+		} else { //If error 
+			var_dump($count);
+			var_dump($row);
+			var_dump($error);
+			echo $errorMsg;
+		}//else is missing because it was given in index_model.php
+	} else { //If $error == true
 		echo $errorMsg;
 	}
 }
 
-if (isset($result)) {
-	$result->free();
-}
-if (isset($mysqli)) {
-	$mysqli->close();	
-}
-
-//Show HTML
+//Display HTML page
 require_once('index_view.php');
