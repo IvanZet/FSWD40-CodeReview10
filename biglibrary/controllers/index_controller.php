@@ -7,7 +7,7 @@ session_start();
 
 //If user is already ligged in, redirect to big_list_boot.php
 if(isset($_SESSION['user'])) {
-	header('Location: big_list_boot.php');
+	header('Location: ../big_list.php');
 	exit;
 }
 
@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])) {
 $error = false;
 $errorMsg = '';
 
-require_once('index_model.php');
+require_once('../models/index_model.php');
 
 checkConnection(); //My function defined in model.php
 
@@ -52,7 +52,7 @@ if (isset($_POST['btn_login'])) { //If login button was pushed
 		if (!$error) {
 			if ($count == 1 && $row[0]['pass'] == $pass) {//Single user found and passwords match
 				$_SESSION['user'] = $row[0]['user_id'];
-				header("Location: big_list_boot.php");
+				header("Location: ../big_list.php");
 			} else { //If passwords not match
 				var_dump($count);
 				var_dump($row);
@@ -71,4 +71,4 @@ if (isset($_POST['btn_login'])) { //If login button was pushed
 }
 
 //Display HTML page
-require_once('index_view.php');
+require_once('../views/index_view.php');

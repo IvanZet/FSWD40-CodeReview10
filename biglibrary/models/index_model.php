@@ -1,7 +1,7 @@
 <?php
 
 //Functions to work with mySQL (mySQL-specific data access layer)
-require_once('mySQL_functions.php');
+require_once('../mySQL_functions.php');
 
 function checkConnection () {
 	$mysqli = openConnection ('localhost', 'root', '', 'cr10_ivan_zykov_biglibrary');
