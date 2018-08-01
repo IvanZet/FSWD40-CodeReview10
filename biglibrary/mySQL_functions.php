@@ -1,6 +1,12 @@
 <?php
-function openConnection ($dbHost, $dbUser, $dbPass, $dbName) {
-	return new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+
+DEFINE('DBHOST', 'localhost');
+DEFINE('DBUSER', 'root');
+DEFINE('DBPASS', '');
+DEFINE('DBNAME', 'cr10_ivan_zykov_biglibrary');
+
+function openConnection () {
+	return new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 }
 
 function closeConnection (&$connection) {
@@ -32,4 +38,8 @@ function countRows ($result) {
 
 function fetchAllRows ($result) {
 	return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+function fetchOneRow ($result) {
+	return $result->fetch_assoc();
 }

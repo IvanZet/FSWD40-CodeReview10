@@ -1,8 +1,14 @@
 To Do:
-* Update folder structure and file names
-* Add Details
-* Change data type for media type to enum
-* Add Update for admin only
-* Add Delete for admin only
-	* Add new table for deleted media
-* Clean code: delete commented code, add comments
+1 Update folder structure and file names
+1 Add Details
+0 Change data type for media type to enum
+0 Add Update for admin only
+0 Add Delete for admin only
+	0 Add new table for deleted media
+0 Clean code: delete commented code, add comments
+
+Branch naming convention:
+reason__details
+Reasons: feat, fix
+Details: separate words with '-'
+Example: feat__list-details
