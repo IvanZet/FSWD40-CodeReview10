@@ -4,7 +4,7 @@ session_start();
 
 //If user not logged in, redirect to index_boot.php
 if(!isset($_SESSION['user'])) {
-	header('Location: index_boot.php');
+	header('Location: index_controller.php');
 	exit;
 }
 
@@ -54,8 +54,6 @@ $mysqli->close();
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    <div class="navbar-nav">
-		    	<a class="nav-item nav-link" href="index_boot.php">Sign in</a>
-		      <a class="nav-item nav-link" href="register_boot.php">Sign Up</a>
 		      <a class="nav-item nav-link active" href="big_list_boot.php">Big List<span class="sr-only">(current)</span></a>
 		      <a class="nav-item nav-link" href="log_out_boot.php?logout">Log Out</a>
 		      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
