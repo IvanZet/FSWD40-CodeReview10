@@ -126,17 +126,14 @@ $mysqli->close();
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="index_boot.php">Big Library</a>
+		  <a class="navbar-brand" href="index_controller.php">Big Library</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    <div class="navbar-nav">
-		    	<a class="nav-item nav-link" href="index_boot.php">Sign in</a>
+		    	<a class="nav-item nav-link" href="index_controller.php">Sign in</a>
 		      <a class="nav-item nav-link active" href="register_boot.php">Sign Up<span class="sr-only">(current)</span></a>
-		      <a class="nav-item nav-link" href="big_list_boot.php">Big List</a>
-		      <a class="nav-item nav-link" href="log_out_boot.php">Log Out</a>
-		      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
 		    </div>
 		  </div>
 		</nav>
