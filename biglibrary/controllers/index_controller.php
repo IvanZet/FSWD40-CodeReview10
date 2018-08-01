@@ -5,7 +5,7 @@
 ob_start();
 session_start();
 
-//If user is already ligged in, redirect to big_list_boot.php
+//If user is already ligged in, redirect to big_list.php
 if(isset($_SESSION['user'])) {
 	header('Location: ../big_list.php');
 	exit;

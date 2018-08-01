@@ -10,7 +10,7 @@ if(!isset($_SESSION['user'])) {
 
 require_once 'db_connect.php';
 
-$sql  = "SELECT title, publish_date, creators.first_name AS first_name, creators.last_name AS last_name, media.img_link AS img_link, fk_user_id
+$sql  = "SELECT isbn, title, publish_date, creators.first_name AS first_name, creators.last_name AS last_name, media.img_link AS img_link, fk_user_id
 				 FROM media
 				 LEFT JOIN creators
 				 		ON media.fk_creator_id = creators.creator_id
@@ -73,6 +73,7 @@ $mysqli->close();
 						  <div class="card-body">
 						    <h5 class="card-title"><?php echo $medium['title']; ?></h5>
 						    <p class="card-text"><?php echo $medium['first_name'] . " " . $medium['last_name']; ?></p>
+						    <a href="controllers/details_controller.php?isbn=<?php echo $medium['isbn'] ?>" title=""><button type="button" class="btn btn-primary">Details</button></a>
 						  </div>
 						</div>
 						<?php
