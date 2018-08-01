@@ -1,0 +1,8 @@
+To Do:
+* Update folder structure and file names
+* Add Details
+* Change data type for media type to enum
+* Add Update for admin only
+* Add Delete for admin only
+	* Add new table for deleted media
+* Clean code: delete commented code, add comments

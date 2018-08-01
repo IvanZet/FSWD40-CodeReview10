@@ -26,7 +26,7 @@ if(isset($_POST['btn_singup'])) {
 		$errorMsg .= 'Please enter your first name! ';
 	} else if (strlen($first_name) < 3) {
 		$error = true;
-		$errorMsg .= 'Your name should be at lest 3 letters long! ';
+		$errorMsg .= 'Your name should be at lest 3 letter long! ';
 	} else if (!preg_match("/^[A-Za-z ]+$/", $first_name)) {
 		$error = true;
 		$errorMsg .= 'First name must contain alphabets and spaces only! ';
@@ -38,7 +38,7 @@ if(isset($_POST['btn_singup'])) {
 		$errorMsg .= 'Please enter your last name! ';
 	} else if (strlen($last_name) < 3) {
 		$error = true;
-		$errorMsg .= 'Your last name should be at lest 3 letters long! ';
+		$errorMsg .= 'Your last name should be at lest 3 letter long! ';
 	} else if (!preg_match("/^[A-Za-z ]+$/", $last_name)) {
 		$error = true;
 		$errorMsg .= 'First last name must contain alphabets and spaces only! ';
@@ -87,13 +87,13 @@ if(isset($_POST['btn_singup'])) {
 
 	//Check for errors and save to DB
 	if(!$error) {
-		echo 'No errors!';
+		echo 'No errors! ';
 		$sql = "INSERT INTO users (first_name, last_name, email, pass)
 						VALUES 						('$first_name', '$last_name', '$email', '$pass')";
 		$result = $mysqli->real_query($sql);
 
 		if ($result) {
-			echo 'Registered as a new user! You may login.';
+			echo 'Registered as new user! You may sing in.';
 			unset($first_name, $last_name, $email, $pass);
 		} else {
 			echo 'Something went wrong, try again!';
@@ -116,44 +116,53 @@ $mysqli->close();
 <html>
 <head>
 	<title>Register</title>
-	<style type="text/css">
-		fieldset {
-			margin: auto;
-			margin-top: 100px;
-			width: 50%;
-		}
-		table tr th td {
-			padding-top: 20px;
-		}
-	</style>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<a href="index.php" title=""><button type="button">Back to Sign In</button></a>
-	<fieldset>
-		<legend>Fill in the form to register</legend>
-			<table>
-				<form action="register.php" method="post" autocomplete="on">
-					<tr>
-						<th>First name:</th>
-						<td><input type="text" name="first_name"></td>
-					</tr>
-					<tr>
-						<th>Last name:</th>
-						<td><input type="text" name="last_name"></td>
-					</tr>
-					<tr>
-						<th>E-mail:</th>
-						<td><input type="text" name="email"></td>
-					</tr>
-					<tr>
-						<th>Password:</th>
-						<td><input type="text" name="pass"></td>
-					</tr>
-					<tr>
-						<td><button type="submit" name="btn_singup">Sign Up</button></td>
-					</tr>
-			</table>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="controllers/index_controller.php">Big Library</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+		    	<a class="nav-item nav-link" href="controllers/index_controller.php">Sign in</a>
+		      <a class="nav-item nav-link active" href="register.php">Sign Up<span class="sr-only">(current)</span></a>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+	<main class="small_main">
+		<form class="form-signin" action="register.php" method="post" autocomplete="on">
+			<div class="form-group">
+		    <label for="first_name">First name</label>
+		    <input type="text" name="first_name" id="first_name" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
+		  </div>
+		  <!-- <form action="register.php" method="post" autocomplete="on"> -->
+			<div class="form-group">
+		    <label for="last_name">Last name</label>
+		    <input type="text" name="last_name" id="last_name" class="form-control" aria-describedby="emailHelp" placeholder="Enter last name">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Email address</label>
+		    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+		  </div>
+		  <div class="form-group">
+		    <label for="pass">Password</label>
+		    <input type="password" name="pass" class="form-control" id="pass" placeholder="Enter password">
+		  </div>
+		  <button type="submit" class="btn btn-primary" name="btn_singup">Submit</button>
 		</form>
-	</fieldset>
+	</main>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
