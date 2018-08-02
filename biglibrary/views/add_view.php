@@ -3,83 +3,71 @@
 	<main>
 		<div class="container">
 			<form action="add_controller.php" method="POST" accept-charset="utf-8">
-				<!-- Medium title -->
-				<div class="form-group">
-					<label for="title">Title</label>
-					<input type="text" class="form-control" id="title" placeholder="Enter title"></input>
-				</div>
-				<!-- Creator's name and creator-->
+				<!-- Medium title and creator-->
 				<div class="row">
 					<div class="col-sm">
 						<div class="form-group">
-							<label for="first_name">Creator's first name</label>
-				    	<input type="text" class="form-control" id="first_name" placeholder="Enter creator's first name">
+							<label for="title">Title</label>
+							<input type="text" class="form-control" id="title" name="title" placeholder="Enter title"></input>
 						</div>	
 					</div>
 					<div class="col-sm">
 						<div class="form-group">
-							<label for="last_name">Creator's last name</label>
-				    	<input type="text" class="form-control" id="last_name" placeholder="Enter creator's last name">
-						</div>	
+					    <label for="creator">Creator</label>
+					    <select class="form-control" id="creator" name="creator">
+					    	<option value="-1">-- Select creator --</option>
+					      <?php foreach ($creators as $oneCreator) { ?>
+					      <option value="<?php echo $oneCreator['creator_id']; ?>"><?php echo $oneCreator['first_name'].' '.$oneCreator['last_name']; ?></option>
+					    	<?php } ?>
+					    </select>
+					  </div>	
 					</div>
 				</div>
 				<!-- Description -->
-				<div>
-					<div class="form-group">
-						<label for="descr">Description</label>
-						<textarea class="form-control" id="descr" rows="3"></textarea>
-					</div>
+				<div class="form-group">
+					<label for="descr">Description</label>
+					<textarea class="form-control" id="descr" name="descr" rows="4" placeholder="Enter description"></textarea>
 				</div>
-				<!-- Publication data and publisher's name-->
+				<!-- Image link-->
+				<div class="form-group">
+					<label for="img">Image URL</label>
+					<textarea class="form-control" id="img" name="img" rows="2" placeholder="Enter image URL"></textarea>
+				</div>
+				<!-- Publication year and publisher -->
 				<div class="row">
 					<div class="col-sm">
 						<div class="form-group">
-							<label for="pub_date">Publication year</label>
-							<input type="text" class="form-control" id="year" placeholder="Enter publication year"></input>
+							<label for="year">Publication year</label>
+							<input type="text" class="form-control" id="year" name="year" placeholder="Enter publication year"></input>
 						</div>
 					</div>
 					<div class="col-sm">
 						<div class="form-group">
-							<label for="publisher">Publisher's name</label>
-							<input type="text" class="form-control" id="publisher" placeholder="Enter publisher name"></input>
+							<label for="publisher">Select publisher</label>
+					    <select class="form-control" id="publisher" name="publisher">
+					      <option value="-1">-- Select publisher --</option>
+					      <?php foreach($publishers as $onePublisher) { ?>
+					      <option value="<?php echo $onePublisher['publisher_id']; ?>"><?php echo $onePublisher['name'].', '.$onePublisher['city']; ?></option>
+					    	<?php } ?>
+					    </select>
 						</div>
 					</div>
 				</div>
-				<!-- Publisher's address -->
+				<!-- Type -->
 				<div class="row">
-					<div class="col-sm">
+					<div class="col-sm-6">
 						<div class="form-group">
-						<label for="street">Publisher's Street</label>
-			    	<input type="text" class="form-control" id="street" placeholder="Enter Publisher's street">
-						</div>	
-					</div>
-					<div class="col-sm">
-						<div class="form-group">
-						<label for="house">House number</label>
-			    	<input type="text" class="form-control" id="house" placeholder="Enter house number">
-						</div>	
-					</div>
-					<div class="col-sm">
-						<div class="form-group">
-						<label for="post_code">Postal code</label>
-			    	<input type="text" class="form-control" id="post_code" placeholder="Enter postal code">
-						</div>	
-					</div>
+							<label for="type">Select type</label>
+					    <select class="form-control" id="type" name="type">
+					    	<option value="-1">-- Select type --</option>
+					    	<?php foreach($types as $oneType) { ?>
+					      <option value="<?php echo $oneType['type_id']; ?>"><?php echo $oneType['name']; ?></option>
+					    	<?php } ?>
+					    </select>
+						</div>		
+					</div>	
 				</div>
-				<div class="row">
-					<div class="col-sm">
-						<div class="form-group">
-						<label for="city">Publisher's city</label>
-			    	<input type="text" class="form-control" id="city" placeholder="Enter Publisher's city">
-						</div>	
-					</div>
-					<div class="col-sm">
-						<div class="form-group">
-						<label for="country">Country</label>
-			    	<input type="text" class="form-control" id="country" placeholder="Enter country">
-						</div>	
-					</div>
-				</div>
+				<button class="btn btn-success" type="submit" name="btn_add">Add medium</button>
 			</form>
 		</div>
 	</main>
