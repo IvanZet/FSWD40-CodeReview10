@@ -12,3 +12,9 @@ reason__details
 Reasons: feat, fix
 Details: separate words with '-'
 Example: feat__list-details
+
+Commits:
+
+Fixes index view and custom CSS
+- Adds main wrapping aroud content
+- Updates custom CSS file: main section and small_main class

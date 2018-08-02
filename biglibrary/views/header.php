@@ -21,7 +21,7 @@
 		    <div class="navbar-nav">
 		    	<a class="nav-item nav-link" href="../big_list.php">Big List</a>
 		      <!-- <a class="nav-item nav-link" href="../register.php">Sign Up</a> -->
-		      <!-- <a class="nav-item nav-link" href="log_out_boot.php?logout">Log Out</a> -->
+		      <a class="nav-item nav-link" href="../log_out.php?logout">Log Out</a>
 		      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
 		    </div>
 		  </div>
