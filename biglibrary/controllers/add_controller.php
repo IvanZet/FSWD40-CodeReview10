@@ -87,12 +87,23 @@ if(isset($_POST['btn_add'])) {
 
 	// Save to DB
 	if (!$error) {
-		echo "No errors)";
+		//echo "No errors) Trying to insert into DB. ";
+
+		// Insert into DB
+		$result = addMedium($title, $year, $img, $description, $creatorId, $publisherId, $type);
+
+		if ($result) {
+			echo 'Added new medium!';
+			unset($title, $year, $img, $description, $creatorId, $publisherId, $type);
+		} else {
+			echo 'Failed to add new medium! Variable $result:<br>';
+			var_dump($result);
+		}
+
 	} else {
 		echo $errorMsg;
 	}
 
-	// Throw successs message
 }
 
 //Get array of creators from DB

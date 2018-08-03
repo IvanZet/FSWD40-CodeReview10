@@ -32,6 +32,10 @@ function queryDatabase ($mysqli, $sql) {
 	return $mysqli->query($sql);
 }
 
+function realQuery($mysqli, $sql) {
+	return $mysqli->real_query($sql);
+}
+
 function countRows ($result) {
 	return mysqli_num_rows($result);
 }
