@@ -8,16 +8,15 @@ if(!isset($_SESSION['user'])) {
 	exit;
 }
 
-// Execute add on DB
 $error = false;
 $errorMsg = '';
 
 // Include model
-require_once('../models/add_model.php');
+require_once('../models/edit_model.php');
 require_once('../models/common_model.php');
 
 // If submit button is pressed
-if(isset($_POST['btn_add'])) {
+if(isset($_POST['btn_edit'])) {
 	
 	// Get and clear input
 	$title = readField($_POST['title']);
@@ -56,8 +55,7 @@ if(isset($_POST['btn_add'])) {
 	if (!$error) {
 		//echo "No errors) Trying to insert into DB. ";
 
-		// Insert into DB
-		$result = addMedium($title, $year, $img, $description, $creatorId, $publisherId, $type);
+		// @todo Insert into DB
 
 		if ($result) {
 			echo 'Added new medium!';
@@ -73,14 +71,17 @@ if(isset($_POST['btn_add'])) {
 
 }
 
-//Get array of creators from DB
+// Get meduim details
+$isbn = $_POST['isbn'];
+
+// Get array of creators from DB
 $creators = getCreators();
 
-//Get array of publishers from DB
+// Get array of publishers from DB
 $publishers = getPublishers();
 
-//Get array of types from DB
+// Get array of types from DB
 $types = getTypes();
 
 // Show view
-require_once('../views/add_view.php');
+require_once('../views/edit_view.php');

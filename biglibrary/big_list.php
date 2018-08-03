@@ -78,7 +78,7 @@ $mysqli->close();
 						    <h5 class="card-title"><?php echo $medium['title']; ?></h5>
 						    <p class="card-text"><?php echo $medium['first_name'] . " " . $medium['last_name']; ?></p>
 						    <a href="controllers/details_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-primary">Details</button></a>
-						    <a href="controllers/update_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-warning">Update</button></a>
+						    <a href="controllers/edit_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-warning">Edit</button></a>
 						  </div>
 						</div>
 						<?php }	?>
