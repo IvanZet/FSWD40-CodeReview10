@@ -1,14 +1,30 @@
 To Do:
 1 Update folder structure and file names
 1 Add Details
-0 Change data type for media type to enum
-0 Add Update for admin only
-0 Add Delete for admin only
-	0 Add new table for deleted media
+1 Add adding medium
+0 Add Update medium
+0 Add Delete medium
 0 Clean code: delete commented code, add comments
+?0 Add new table for deleted media
 
 Branch naming convention:
 reason__details
 Reasons: feat, fix
 Details: separate words with '-'
 Example: feat__list-details
+
+Commits:
+
+Fixes index view and custom CSS
+- Adds main wrapping aroud content
+- Updates custom CSS file: main section and small_main class
+
+INSERT INTO media (title, publish_date, img_link, short_description, fk_creator_id, fk_publisher_id, fk_type_id)
+VALUES (
+'Stalker', 
+1979, 
+'https://upload.wikimedia.org/wikipedia/ru/8/8b/1980_stalker.jpg', 
+'Stalker is a 1979 Soviet science fiction art film directed by Andrei Tarkovsky with a screenplay written by Boris and Arkady Strugatsky, loosely based on their novel Roadside Picnic (1972). The film combines elements of science fiction with dramatic philosophical and psychological themes.', 
+1, 
+3, 
+3);

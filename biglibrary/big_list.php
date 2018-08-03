@@ -55,6 +55,7 @@ $mysqli->close();
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    <div class="navbar-nav">
 		      <a class="nav-item nav-link active" href="big_list.php">Big List<span class="sr-only">(current)</span></a>
+		      <a class="nav-item nav-link" href="controllers/add_controller.php">Add medium</a>
 		      <a class="nav-item nav-link" href="log_out.php?logout">Log Out</a>
 		      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
 		    </div>
@@ -65,20 +66,22 @@ $mysqli->close();
 		<main>
 				<div class="container">
 					<div class="row">
+						<a href="controllers/add_controller.php" ><button type="button" class="btn btn-success">Add medium</button></a>
+					</div>
+					<div class="row">
 						<?php
 						//Show all the media in the library
-						foreach ($media as $medium) {?>
+						foreach ($media as $medium) { ?>
 							<div class="card" style="width: 18rem;">
 						  <img class="card-img-top" src="<?php echo $medium['img_link']; ?>" alt="Card image cap">
 						  <div class="card-body">
 						    <h5 class="card-title"><?php echo $medium['title']; ?></h5>
 						    <p class="card-text"><?php echo $medium['first_name'] . " " . $medium['last_name']; ?></p>
-						    <a href="controllers/details_controller.php?isbn=<?php echo $medium['isbn'] ?>" title=""><button type="button" class="btn btn-primary">Details</button></a>
+						    <a href="controllers/details_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-primary">Details</button></a>
+						    <a href="controllers/update_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-warning">Update</button></a>
 						  </div>
 						</div>
-						<?php
-						}
-						?>	
+						<?php }	?>
 					</div>
 				</div>
 				
