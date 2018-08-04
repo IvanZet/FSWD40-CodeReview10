@@ -1,16 +1,16 @@
 To Do:
 1 Update folder structure and file names
 1 Add Details
-1 Add adding medium
-0 Add Update medium
+1 Add Adding new medium
+1 Add Edit medium
 0 Add Delete medium
 0 Clean code: delete commented code, add comments
 ?0 Add new table for deleted media
 
 Branch naming convention:
-reason__details
+reason__what-it-does
 Reasons: feat, fix
-Details: separate words with '-'
+What-it-does: separate words with '-'
 Example: feat__list-details
 
 Commits:

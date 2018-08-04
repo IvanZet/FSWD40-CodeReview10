@@ -13,12 +13,26 @@ function getDetails($isbn) {
 					INNER JOIN types
 						ON media.fk_type_id = types.type_id
 					WHERE media.isbn = $isbn";
+
+	$result = queryDatabase($mysqli, $sql);
+	$details = fetchOneRow($result);
+
+	return $details;
 }
 
 function editMedium($isbn, $title, $year, $img, $description, $creatorId, $publisherId, $type) {
 	$mysqli = openConnection();
 
-	$sql = "";
+	$sql = "UPDATE media
+					SET
+						title = '$title',
+				    publish_date = $year,
+				    img_link = '$img',
+				    short_description = '$description',
+				    fk_creator_id = '$creatorId',
+				    fk_publisher_id = '$publisherId',
+				    fk_type_id = '$type'
+					WHERE isbn = '$isbn'";
 					
 	$result = realQuery($mysqli, $sql);
 	return $result;
