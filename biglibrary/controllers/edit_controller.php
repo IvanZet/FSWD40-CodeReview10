@@ -8,17 +8,23 @@ if(!isset($_SESSION['user'])) {
 	exit;
 }
 
-// Execute add on DB
 $error = false;
 $errorMsg = '';
 
 // Include model
-require_once('../models/add_model.php');
+require_once('../models/edit_model.php');
 require_once('../models/common_model.php');
 
-// If submit button is pressed
-if(isset($_POST['btn_add'])) {
+// Get medium id to edit
+if (!isset($_POST['btn_edit'])) {
+	$isbn = $_GET['isbn'];
+}
+
+// If submit button is pressed, try tp update medium
+if(isset($_POST['btn_edit'])) {
 	
+	$isbn = $_POST['isbn'];
+
 	// Get and clear input
 	$title = readField($_POST['title']);
 	$creatorId = readField($_POST['creator']);
@@ -57,30 +63,34 @@ if(isset($_POST['btn_add'])) {
 		//echo "No errors) Trying to insert into DB. ";
 
 		// Insert into DB
-		$result = addMedium($title, $year, $img, $description, $creatorId, $publisherId, $type);
+		$result = editMedium($isbn, $title, $year, $img, $description, $creatorId, $publisherId, $type);
 
 		if ($result) {
-			echo 'Added new medium!';
+			echo 'Edited medium!';
 			unset($title, $year, $img, $description, $creatorId, $publisherId, $type);
 		} else {
-			echo 'Failed to add new medium! Variable $result:<br>';
+			echo 'Failed to edit medium! Variable $result:<br>';
 			var_dump($result);
 		}
 
 	} else {
+		echo "Error!<br>";
 		echo $errorMsg;
 	}
 
 }
 
-//Get array of creators from DB
+// Get all creators from DB
 $creators = getCreators();
 
-//Get array of publishers from DB
+// Get all publishers from DB
 $publishers = getPublishers();
 
-//Get array of types from DB
+// Get all types from DB
 $types = getTypes();
 
+// Get meduim details
+$details = getDetails($isbn);
+
 // Show view
-require_once('../views/add_view.php');
+require_once('../views/edit_view.php');
