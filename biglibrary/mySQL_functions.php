@@ -1,9 +1,9 @@
 <?php
 
-DEFINE('DBHOST', 'localhost'); // localhost // e96325-mysql.services.easyname.eu
-DEFINE('DBUSER', 'root'); // root // u152873db1
-DEFINE('DBPASS', ''); // '' // Fr1no807
-DEFINE('DBNAME', 'cr10_ivan_zykov_biglibrary'); // 'cr10_ivan_zykov_biglibrary' // u152873db1
+DEFINE('DBHOST', 'e96325-mysql.services.easyname.eu'); // localhost // e96325-mysql.services.easyname.eu
+DEFINE('DBUSER', 'u152873db1'); // root // u152873db1
+DEFINE('DBPASS', 'Fr1no807'); // '' // Fr1no807
+DEFINE('DBNAME', 'u152873db1'); // 'cr10_ivan_zykov_biglibrary' // u152873db1
 
 function openConnection () {
 	return new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
