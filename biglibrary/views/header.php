@@ -19,9 +19,13 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    <div class="navbar-nav">
-		    	<a class="nav-item nav-link" href="../big_list.php">Big List</a>
-		      <!-- <a class="nav-item nav-link" href="../register.php">Sign Up</a> -->
+		    	<?php if(isset($_SESSION['user'])) { ?>
+					<a class="nav-item nav-link" href="../big_list.php">Big List</a>
 		      <a class="nav-item nav-link" href="../log_out.php?logout">Log Out</a>
+					<?php } else { ?>
+		      <a class="nav-item nav-link" href="index_controller.php">Sign In</a>
+		      <a class="nav-item nav-link" href="../register.php">Sign Up</a>
+		    	<?php } ?>
 		      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
 		    </div>
 		  </div>

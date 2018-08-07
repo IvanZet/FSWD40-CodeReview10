@@ -1,9 +1,9 @@
 <?php
 
-DEFINE('DBHOST', 'localhost');
-DEFINE('DBUSER', 'root');
-DEFINE('DBPASS', '');
-DEFINE('DBNAME', 'cr10_ivan_zykov_biglibrary');
+DEFINE('DBHOST', 'localhost'); // localhost // e96325-mysql.services.easyname.eu
+DEFINE('DBUSER', 'root'); // root // u152873db1
+DEFINE('DBPASS', ''); // '' // Fr1no807
+DEFINE('DBNAME', 'cr10_ivan_zykov_biglibrary'); // 'cr10_ivan_zykov_biglibrary' // u152873db1
 
 function openConnection () {
 	return new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
