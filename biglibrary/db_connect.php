@@ -1,14 +1,11 @@
 <?php 
 
-require_once('mySQL_functions');
-
-/*define('DBHOST', 'localhost');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('DBNAME', 'cr10_ivan_zykov_biglibrary');*/
+// Grab DB connection credentials
+require_once('mySQL_functions.php');
 
 $mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
+// Check connection
 if ($mysqli->connect_error) {
 	die('Connection failed: ' . $mysqli->connect_errno. ': ' . $mysqli->connect_error);
 } else {
