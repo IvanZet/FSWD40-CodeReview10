@@ -1,9 +1,11 @@
 <?php 
 
-define('DBHOST', 'localhost');
+require_once('mySQL_functions');
+
+/*define('DBHOST', 'localhost');
 define('DBUSER', 'root');
 define('DBPASS', '');
-define('DBNAME', 'cr10_ivan_zykov_biglibrary');
+define('DBNAME', 'cr10_ivan_zykov_biglibrary');*/
 
 $mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
