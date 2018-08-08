@@ -1,4 +1,4 @@
-# Big Library web site
+# Big Library website
 ## Link
 https://library.ivanzykov.net
 ## Description
