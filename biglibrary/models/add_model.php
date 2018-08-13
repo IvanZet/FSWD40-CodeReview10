@@ -8,5 +8,7 @@ function addMedium($title, $year, $img, $description, $creatorId, $publisherId, 
 					VALUES ('$title', '$year', '$img', '$description', '$creatorId', '$publisherId', '$type')";
 					
 	$result = realQuery($mysqli, $sql);
+	closeConnection($mysqli);
+	
 	return $result;
 }

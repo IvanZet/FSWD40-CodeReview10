@@ -8,6 +8,15 @@ if(!isset($_SESSION['user'])) {
 	exit;
 }
 
+// Show message when medium deleted
+if (isset($_GET['deleted'])) {
+	if ($_GET['deleted']) {
+		echo 'Medium deleted!<br>';
+	}	else {
+		echo 'Failed to delete medium';
+	}
+}
+
 require_once 'db_connect.php';
 
 $sql  = "SELECT isbn, title, publish_date, creators.first_name AS first_name, creators.last_name AS last_name, media.img_link AS img_link, fk_user_id
@@ -79,6 +88,7 @@ $mysqli->close();
 						    <p class="card-text"><?php echo $medium['first_name'] . " " . $medium['last_name']; ?></p>
 						    <a href="controllers/details_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-primary">Details</button></a>
 						    <a href="controllers/edit_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-warning">Edit</button></a>
+						    <a href="controllers/delete_controller.php?isbn=<?php echo $medium['isbn']; ?>" title=""><button type="button" class="btn btn-danger">Delete</button></a>
 						  </div>
 						</div>
 						<?php }	?>

@@ -54,15 +54,15 @@ if (isset($_POST['btn_login'])) { //If login button was pushed
 				$_SESSION['user'] = $row[0]['user_id'];
 				header("Location: ../big_list.php");
 			} else { //If passwords not match
-				var_dump($count);
+				/*var_dump($count);
 				var_dump($row);
-				var_dump($error);
-				echo $errorMsg;
+				var_dump($error);*/
+				echo 'Wrong password, try again!';
 			}
 		} else { //If error 
-			var_dump($count);
+			/*var_dump($count);
 			var_dump($row);
-			var_dump($error);
+			var_dump($error);*/
 			echo $errorMsg;
 		}//else is missing because it was given in index_model.php
 	} else { //If $error == true

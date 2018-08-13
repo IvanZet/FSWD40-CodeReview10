@@ -16,6 +16,7 @@ function getDetails($isbn) {
 
 	$result = queryDatabase($mysqli, $sql);
 	$details = fetchOneRow($result);
+	closeConnection($mysqli);
 
 	return $details;
 }
@@ -35,5 +36,6 @@ function editMedium($isbn, $title, $year, $img, $description, $creatorId, $publi
 					WHERE isbn = '$isbn'";
 					
 	$result = realQuery($mysqli, $sql);
+	closeConnection($mysqli);
 	return $result;
 }

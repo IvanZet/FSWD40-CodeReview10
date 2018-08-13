@@ -16,6 +16,7 @@ function getDetails($isbn) {
 
 	$result = queryDatabase($mysqli, $sql);
 	$details = fetchOneRow($result);
+	closeConnection($mysqli);
 
 	return $details;
 }
