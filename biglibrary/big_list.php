@@ -44,7 +44,7 @@ $mysqli->close();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Big List</title>
 	<meta charset="utf-8">

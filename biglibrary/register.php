@@ -113,7 +113,7 @@ $mysqli->close();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Register</title>
 	<meta charset="utf-8">
