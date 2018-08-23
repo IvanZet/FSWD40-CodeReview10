@@ -74,10 +74,10 @@ $mysqli->close();
 	<table>
 		<main>
 				<div class="container">
-					<div class="row">
-						<a href="controllers/add_controller.php" ><button type="button" class="btn btn-success">Add medium</button></a>
-					</div>
-					<div class="row">
+					<!-- <div class="row"> -->
+						<a href="controllers/add_controller.php" ><button type="button" class="btn btn-success my-3">Add medium</button></a>
+					<!-- </div> -->
+					<div class="row justify-content-around">
 						<?php
 						//Show all the media in the library
 						foreach ($media as $medium) { ?>
@@ -104,4 +104,9 @@ $mysqli->close();
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
+<footer class="container">
+	<p class="text-center mt-5 mb-3 text-muted">&copy; Ivan Zykov, 2018</p>
+</footer>
+
 </html>

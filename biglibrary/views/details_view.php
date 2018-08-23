@@ -2,6 +2,8 @@
 
 	<main>
 		<div class="container">
+			<a href="../big_list.php" ><button type="button" class="btn btn-primary my-3">Back to all media</button></a>
+
 			<div class="row">
 
 				<!-- Picture -->

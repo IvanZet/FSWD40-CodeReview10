@@ -3,7 +3,9 @@
 	<main>
 		<!-- <?php var_dump($details['description']); ?> -->
 		<div class="container">
-			<form action="edit_controller.php" method="POST" accept-charset="utf-8">
+			<a href="../big_list.php" ><button type="button" class="btn btn-primary mt-3">Back to all media</button></a>
+
+			<form action="edit_controller.php" method="POST" accept-charset="utf-8" class="mt-3">
 				<!-- Medium ID hidden for POST request-->
 				<input type="hidden" name="isbn" value="<?php echo $isbn; ?>"></input>
 				<!-- Medium title and creator-->
@@ -70,7 +72,7 @@
 						</div>		
 					</div>	
 				</div>
-				<button class="btn btn-success" type="submit" name="btn_edit">Update medium</button>
+				<button class="btn btn-warning" type="submit" name="btn_edit">Save changes</button>
 			</form>
 		</div>
 	</main>

@@ -2,7 +2,9 @@
 
 	<main>
 		<div class="container">
-			<form action="add_controller.php" method="POST" accept-charset="utf-8">
+			<a href="../big_list.php" ><button type="button" class="btn btn-primary mt-3">Back to all media</button></a>
+
+			<form action="add_controller.php" method="POST" accept-charset="utf-8" class="mt-3">
 				<!-- Medium title and creator-->
 				<div class="row">
 					<div class="col-sm">
